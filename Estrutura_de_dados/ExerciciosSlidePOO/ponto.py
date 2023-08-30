@@ -6,6 +6,3 @@ class Ponto:
 
     def __str__(self):
         return f"{self.nome}: ({self.x}, {self.y})"
-
-a=Ponto('a',1,1)
-print(a)
