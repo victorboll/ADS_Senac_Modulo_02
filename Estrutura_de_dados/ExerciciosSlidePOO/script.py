@@ -11,8 +11,8 @@ with open('pontos.txt', 'r') as arquivo:
 obj=[]
 j=0
 for i in range(int(len(linhasArquivo)/2)):
-    obj.append(ponto.Ponto(linhasArquivo[j],linhasArquivo[j+1][0],linhasArquivo[j+1][1]))
-    j+=2
+    obj.append(ponto.Ponto(linhasArquivo[j], linhasArquivo[j+1][0], linhasArquivo[j+1][1]))
+    j += 2
 
 for i in range(len(obj)):
     print(obj[i])

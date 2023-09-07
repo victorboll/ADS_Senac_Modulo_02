@@ -1,0 +1,10 @@
+exemplo = ('a', 'b', 'c', 'd', 'e')
+print(exemplo[1:3])
+print(exemplo[:3])
+print(exemplo[3:])
+print(exemplo[-2])
+print(exemplo[1:-2])
+print(exemplo[1:-1])
+
+exemplo = (['a', 'b', 'c', 'd', 'e'],['a', 'b', 'c', 'd', 'e'],['a', 'b', 'c', 'd', 'e'])
+print(exemplo)
