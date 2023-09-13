@@ -27,6 +27,8 @@ class Tamagushi:
         if self.__health < 100:
             self.__health += tempo/2
             if self.__health > 100: self.__health = 100
+            self.__hunger += round(tempo/2)
+            if self.__hunger > 100: self.__hunger = 100
             self.__set_mood()
 
     def __realizar_atividade(self):
