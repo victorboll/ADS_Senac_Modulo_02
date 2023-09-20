@@ -3,12 +3,12 @@
 """
 
 def frequenciaDigitoK(n, k):
-    if n < 0:
+    if n <= 0:
         return 0
     if n % 10 == k:
-        return 1 + frequenciaDigitoK((n - n % 10)/10, k)
+        return 1 + frequenciaDigitoK((n - (n % 10))/10, k)
     else:
-        return 0 + frequenciaDigitoK((n - n % 10)/10, k)
+        return frequenciaDigitoK((n - (n % 10))/10, k)
 
 
-print(frequenciaDigitoK(762021192, 2))
+print(frequenciaDigitoK(762021292782942, 2))

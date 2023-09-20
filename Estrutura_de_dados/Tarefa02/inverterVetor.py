@@ -4,12 +4,16 @@ Escreva uma função recursiva que inverta ordem dos elementos presentes no veto
 """
 
 vetor = []
-for i in range(100):
+for i in range(5):
     vetor.append((i+1)*2)
 print(vetor)
 
-def inverteVetor(vetor):
-    return
+"""def inverteVetor(vetor):
+    if
+
+    else:
+        temporaria="""
 
 
-print(inverteVetor(vetor))
+
+print(vetor.insert(-1, vetor.pop(-2)))

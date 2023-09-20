@@ -3,9 +3,12 @@
 """
 
 def inverterN(n):
-    if n / 10 <= 0:
+    if n < 1:
         return n
-    return (n % 10) + inverterN(n // 10)
+    return n // (10 ** (len(str(n))-1)) + inverterN(n - (n // (10 ** (len(str(n))-1))) * (10 ** (len(str(n))-1)))*10
 
 
-print(inverterN(1503))
+print(inverterN(2539))
+
+
+
