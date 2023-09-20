@@ -3,17 +3,19 @@
 Escreva uma função recursiva que inverta ordem dos elementos presentes no vetor.
 """
 
-vetor = []
-for i in range(5):
-    vetor.append((i+1)*2)
-print(vetor)
+lista = []
+for i in range(100):
+    lista.append(i + 1)
+print(lista)
 
-"""def inverteVetor(vetor):
-    if
 
+def inverteVetor(vetor, n=0):
+    if n == len(vetor):
+        print(vetor)
     else:
-        temporaria="""
+        temporaria = vetor.pop((n + 1) * -1)
+        vetor.append(temporaria)
+        return inverteVetor(vetor, n + 1)
 
 
-
-print(vetor.insert(-1, vetor.pop(-2)))
+inverteVetor(lista)
