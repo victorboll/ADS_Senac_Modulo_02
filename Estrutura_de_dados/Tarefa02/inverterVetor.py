@@ -11,11 +11,12 @@ print(lista)
 
 def inverteVetor(vetor, n=0):
     if n == len(vetor):
-        print(vetor)
+        return vetor
     else:
         temporaria = vetor.pop((n + 1) * -1)
         vetor.append(temporaria)
         return inverteVetor(vetor, n + 1)
 
 
-inverteVetor(lista)
+print(inverteVetor(lista))
+
