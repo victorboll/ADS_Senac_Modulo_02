@@ -1,3 +1,30 @@
+CREATE TABLE ESTUDANTE (
+idEstudante int PRIMARY KEY,
+nome varchar(45),
+CPF char(11),
+Endereco varchar(45)
+)
+
+CREATE TABLE UC (
+CID int PRIMARY KEY,
+Nome VARCHAR(45),
+CargaHoraria TINYINT,
+)
+
+CREATE TABLE MATRICULA(
+idEstudante int,
+idUC int,
+Conceito char(1),
+CONSTRAINT Matricula_pk PRIMARY KEY (idEstudante, idUC),
+CONSTRAINT Matricula_fk1 FOREIGN KEY (idEstudante) REFERENCES ESTUDANTE(idEstudante),
+CONSTRAINT Matricula_fk2 FOREIGN KEY (idUC) REFERENCES UC(CID),
+)
+
+
+
+
+
+
 INSERT INTO ESTUDANTE VALUES (1, 'Gilmara', '12345678901', 'rua 123')
 INSERT INTO ESTUDANTE VALUES (2, 'Victor', '12345678902', 'rua 232')
 INSERT INTO ESTUDANTE VALUES (3, 'Rafael', '12345678903', 'rua 143')
@@ -15,3 +42,14 @@ INSERT INTO UC VALUES (104, 'Programacao I', 20) --DEPOIS DE INSERIR ESSA TUPLA 
 UPDATE MATRICULA SET Conceito = 'O' WHERE idEstudante = 1 AND idUC = 100;
 UPDATE MATRICULA SET Conceito = 'S' WHERE idEstudante = 2 AND idUC = 100;
 UPDATE MATRICULA SET Conceito = 'B' WHERE idEstudante = 3 AND idUC = 104;
+
+
+
+
+
+
+
+
+SELECT * FROM ESTUDANTE
+SELECT * FROM UC
+SELECT * FROM MATRICULA
