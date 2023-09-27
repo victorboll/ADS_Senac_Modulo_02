@@ -15,7 +15,6 @@ class Macaco:
         self.__bucho = []
 
 
-
 macaco1 = Macaco('José')
 macaco2 = Macaco('João','Morango')
 
