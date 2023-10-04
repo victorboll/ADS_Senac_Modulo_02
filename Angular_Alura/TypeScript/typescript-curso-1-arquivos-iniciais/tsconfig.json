@@ -2,7 +2,9 @@
     "compilerOptions": {
         "outDir": "dist/js", //Indica o diretório em que os arquivos vão ser salvos
         "target": "ES6", //código gerado pelo transpilador será compatível com o ECMAScript 2015 (ES6) 
-        "noEmitOnError": true //Ele não vai gerar um arquivo js enquanto o seu arquivo js não estiver passando na compilação
+        "noEmitOnError": true, //Ele não vai gerar um arquivo js enquanto o seu arquivo js não estiver passando na compilação
+        "noImplicitAny": true, //Quando você não define a tipagem, ele da erro ao invés de assumir que é any
+        "removeComments": true,
     },
     "include": ["app/**/*"] //Inclui na compilação todos os arquivos que estão dentro da pasta app
 }
