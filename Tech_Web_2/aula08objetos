@@ -1,0 +1,47 @@
+const pessoa = {
+    nome: "Luiz",
+    sobrenome: "Otavio"
+}
+
+console.log(pessoa['nome'])
+
+const outraPessoa = new Object();
+outraPessoa.nome = 'Pedro'
+outraPessoa.sobrenome = 'Aleixo'
+outraPessoa.falarNome = function(){
+    console.log(this.nome)
+}
+
+console.log(outraPessoa.nome)
+outraPessoa.falarNome()
+
+function criarPessoa(nome, sobrenome){
+    return {nome, sobrenome}
+}
+
+const p1 = criarPessoa("Carlos","Alberto")
+console.log(p1)
+
+function novaPessoa(nome, sobrenome){
+    return{
+        nome,
+        sobrenome,
+        get nomeCompleto(){
+            return this.nome + " " + this.sobrenome
+        }
+    }
+}
+
+const novap1 = novaPessoa("Pedro", "Almeida")
+console.log(novap1.nomeCompleto) // se você não tivesse usado o get, teria que chamar console.log(novap1.nomeCompleto()), com um parênteses extra
+
+function novaPessoa2(nome, sobrenome, i){
+    return{
+        nome,
+        sobrenome,
+        idade: i, //Se você não utilizar o mesmo nome do que está no parâmetro, precisa dizer que a variável vai receber i
+        get nomeCompleto(){
+            return this.nome + " " + this.sobrenome
+        }
+    }
+}
