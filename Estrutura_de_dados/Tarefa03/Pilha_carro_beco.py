@@ -35,10 +35,30 @@ class Beco:
             self.carro_no_final_beco = self.carro_no_final_beco.carro_anterior
 
     def verificar_se_carro_estacionado(self, valor):
+        if self.carro_no_final_beco == None:
+            print('Não há carros no beco')
+            return
         carro_verificado = self.carro_no_final_beco
-        while carro_verificado
-"""Dado uma placa verifique se o carro está estacionado na rua.
-Caso esteja, informe a sequência de carros que deverá ser retirada para que o carro em questão consiga sair."""
+        while carro_verificado != None:
+            if carro_verificado.numeracao_placa == valor:
+                print(f'Carro com a placa de numeração {valor} está estacionado no Beco')
+                if carro_verificado == self.carro_no_final_beco:
+                    print('Não há carros bloqueando ele, ele pode sair')
+                else:
+                    carro_bloqueando = self.carro_no_final_beco
+                    while carro_bloqueando.numeracao_placa != valor:
+                        print(f'O carro com a placa de numeração {carro_bloqueando.numeracao_placa} precisa sair para '
+                              f'que o carro anterior possa sair.')
+                        carro_bloqueando = carro_bloqueando.carro_anterior
+                    print(f'Depois que todos os carros acima sairem, o carro com placa de numeração '
+                          f'{carro_bloqueando.numeracao_placa} poderá sair')
+                return
+            else:
+                carro_verificado = carro_verificado.carro_anterior
+        print(f'Não tem nenhum carro com a placa de numeração {valor} estacionado no beco')
+
+
+"""Caso esteja, informe a sequência de carros que deverá ser retirada para que o carro em questão consiga sair."""
 
         
 
@@ -50,10 +70,13 @@ rua_sem_saida.estacionar_Carro(3692)
 rua_sem_saida.estacionar_Carro(8642)
 print(rua_sem_saida)
 
+rua_sem_saida.verificar_se_carro_estacionado(1111)
+
 rua_sem_saida.retirar_Carro()
 rua_sem_saida.retirar_Carro()
 rua_sem_saida.retirar_Carro()
-rua_sem_saida.retirar_Carro()
-rua_sem_saida.retirar_Carro()
+
 print(rua_sem_saida)
+
+rua_sem_saida.verificar_se_carro_estacionado(1234)
 
