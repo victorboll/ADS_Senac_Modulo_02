@@ -168,7 +168,7 @@ for i in range(1, 16):
 print(f'\n\n{vetor2}')
 tPilha(vetor2)
 
-vetor3 = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2]
+vetor3 = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10, 11, 12, 13, 14, 16]
 print(f'\n\n{vetor3}')
 tPilha(vetor3)
 
@@ -177,4 +177,21 @@ tPilha(vetor3)
 se positivo, inserir na pilha P; 
 se negativo, inserir na pilha N; 
 se zero, retirar um elemento de cada pilha."""
+def tPilha2(pilhaN, pilhaP, vetor):
+    for i in vetor:
+        if i > 0:
+            pilhaP.inserir_Item(i)
+        elif i < 0:
+            pilhaN.inserir_Item(i)
+        elif i == 0:
+            pilhaN.remover_Item()
+            pilhaP.remover_Item()
 
+
+pilhaN = Pilha()
+pilhaP = Pilha()
+vetor5 = [-1, -3, -5, -7, -9, 2, 4, 6, 8, -11, 10, 0, 0, 0, 12]
+print(f'\n\n{vetor5}')
+tPilha2(pilhaN, pilhaP, vetor5)
+print(pilhaP)
+print(pilhaN)
