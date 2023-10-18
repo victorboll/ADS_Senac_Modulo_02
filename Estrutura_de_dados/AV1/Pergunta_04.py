@@ -7,7 +7,6 @@ class Item:
         self.proximo = None
 
 
-
 class Lista_Circular:
     def __init__(self):
         self.cabeca = None
@@ -40,14 +39,14 @@ class Lista_Circular:
                     print(f'O item se encontra na posicao {contador}')
                     encontrado = True
                 elif item_procurado.valor == valor and not encontrado:
-                    print(f'O item se encontra na posicao {contador}')
+                    print(f'O item também se encontra na posicao {contador}')
                 item_procurado = item_procurado.proximo
                 contador += 1
             if item_procurado.valor == valor and not encontrado:
-                print(f'O item se encontra na posicao {contador}')
+                print(f'O item se encontra na última posicao da lista, que seria {contador}')
                 encontrado = True
-            elif item_procurado.valor == valor and not encontrado:
-                print(f'O item se encontra na posicao {contador}')
+            elif item_procurado.valor == valor and encontrado:
+                print(f'O item também se encontra na última posicao da lista. que seria {contador}')
             if not encontrado:
                 print('Item não se encontra na lista')
 
@@ -61,13 +60,40 @@ class Lista_Circular:
                 if item_procurado.valor == valor and not encontrado:
                     print(f'O item se encontra na posicao {i}')
                     encontrado = True
-                elif item_procurado.valor == valor and not encontrado:
-                    print(f'O item se encontra na posicao {i}')
+                elif item_procurado.valor == valor and encontrado:
+                    print(f'O item também se encontra na posicao {i}')
                 item_procurado = item_procurado.proximo
             if not encontrado:
                 print('Item não se encontra na lista')
 
-
+    def remover_valor(self, valor):
+        item_analisado = self.cabeca
+        item_removido = False
+        if item_analisado == None:
+            print('Lista vazia')
+        else:
+            while item_analisado.proximo != self.cauda:
+                if item_analisado == self.cabeca and item_analisado.valor == valor:
+                    self.cabeca = item_analisado.proximo
+                    self.cauda.proximo = self.cabeca
+                    item_analisado.proximo = None
+                    item_analisado = self.cabeca
+                    self.tamanho_atual -= 1
+                    item_removido = True
+                elif item_analisado.proximo.valor == valor:
+                    item_analisado.proximo = item_analisado.proximo.proximo
+                    print('item removido')
+                    self.tamanho_atual -= 1
+                    item_removido = True
+                elif item_analisado.proximo == self.cauda and item_analisado.proximo.valor == valor:
+                    item_analisado.proximo = self.cabeca
+                    self.cauda = item_analisado
+                    print('removido cauda')
+                    self.tamanho_atual -= 1
+                    item_removido = True
+                item_analisado = item_analisado.proximo
+            if not item_removido:
+                print('Valor informado não encontrado na lista')
 
 
 
@@ -75,6 +101,7 @@ class Lista_Circular:
 
 lista = Lista_Circular()
 lista.busca_item(5)
+lista.inserir_item(5)
 lista.inserir_item(5)
 lista.inserir_item(6)
 lista.inserir_item(7)
@@ -92,6 +119,12 @@ lista.busca_item_com_atributo_tamanho_atual(7)
 lista.busca_item_com_atributo_tamanho_atual(6)
 lista.busca_item_com_atributo_tamanho_atual(5)
 lista.busca_item_com_atributo_tamanho_atual(4)
-
-
+lista.remover_valor(9)
+lista.busca_item_com_atributo_tamanho_atual(9)
+lista.busca_item_com_atributo_tamanho_atual(8)
+lista.remover_valor(8)
+lista.busca_item_com_atributo_tamanho_atual(8)
+lista.busca_item_com_atributo_tamanho_atual(7)
+lista.remover_valor(8)
+lista.remover_valor(5)
 
