@@ -30,6 +30,20 @@ class Lista_Circular:
             self.cauda.proximo = self.cabeca
             self.tamanho_atual += 1
 
+    def visualizar_lista(self):
+        if self.tamanho_atual == 0:
+            print('Lista vazia')
+        else:
+            item_atual = self.cabeca
+            print('[', end=' ')
+            for i in range(self.tamanho_atual):
+                if i+1 < self.tamanho_atual:
+                    print(item_atual.valor, end=' -> ')
+                else:
+                    print(item_atual.valor,']')
+                item_atual = item_atual.proximo
+
+
     def busca_item(self, valor):
         contador = 0
         encontrado = False
@@ -84,15 +98,15 @@ class Lista_Circular:
                     self.tamanho_atual -= 1
                     item_removido = True
                     print('removido cabeca')
-                elif item_analisado.proximo.valor == valor:
-                    item_analisado.proximo = item_analisado.proximo.proximo
-                    print('item removido')
-                    self.tamanho_atual -= 1
-                    item_removido = True
                 elif item_analisado.proximo == self.cauda and item_analisado.proximo.valor == valor:
                     item_analisado.proximo = self.cabeca
                     self.cauda = item_analisado
                     print('removido cauda')
+                    self.tamanho_atual -= 1
+                    item_removido = True
+                elif item_analisado.proximo.valor == valor:
+                    item_analisado.proximo = item_analisado.proximo.proximo
+                    print('item removido')
                     self.tamanho_atual -= 1
                     item_removido = True
                 else:
@@ -101,7 +115,38 @@ class Lista_Circular:
             if not item_removido:
                 print('Valor informado não encontrado na lista')
 
-
+    def remover_valor_com_atributo_tamanho_atual(self, valor):
+        item_analisado = self.cabeca
+        item_removido = False
+        contador = 0
+        if self.tamanho_atual == 0:
+            print('Lista vazia')
+        else:
+            while contador < self.tamanho_atual:
+                if contador == 0 and item_analisado == self.cabeca and item_analisado.valor == valor:
+                    self.cabeca = item_analisado.proximo
+                    self.cauda.proximo = self.cabeca
+                    item_analisado.proximo = None
+                    item_analisado = self.cabeca
+                    self.tamanho_atual -= 1
+                    item_removido = True
+                    print('removido cabeca')
+                elif item_analisado.proximo == self.cauda and item_analisado.proximo.valor == valor:
+                    item_analisado.proximo = self.cabeca
+                    self.cauda = item_analisado
+                    print('removido cauda')
+                    self.tamanho_atual -= 1
+                    item_removido = True
+                elif item_analisado.proximo.valor == valor:
+                    item_analisado.proximo = item_analisado.proximo.proximo
+                    print('item removido')
+                    self.tamanho_atual -= 1
+                    item_removido = True
+                else:
+                    item_analisado = item_analisado.proximo
+                    contador += 1
+            if not item_removido:
+                print('Valor informado não encontrado na lista')
 
 
 
@@ -117,6 +162,7 @@ lista.inserir_item(5)
 lista.inserir_item(5)
 lista.inserir_item(8)
 lista.inserir_item(9)
+lista.visualizar_lista()
 lista.busca_item(9)
 lista.busca_item(8)
 lista.busca_item(7)
@@ -140,4 +186,27 @@ lista.remover_valor(5)
 lista.busca_item_com_atributo_tamanho_atual(5)
 lista.remover_valor(5)
 lista.remover_valor(5)
-
+lista.visualizar_lista()
+lista.inserir_item(5)
+lista.inserir_item(5)
+lista.inserir_item(5)
+lista.inserir_item(5)
+lista.inserir_item(6)
+lista.inserir_item(7)
+lista.inserir_item(5)
+lista.inserir_item(5)
+lista.inserir_item(8)
+lista.inserir_item(9)
+lista.visualizar_lista()
+lista.remover_valor_com_atributo_tamanho_atual(5)
+lista.visualizar_lista()
+lista.remover_valor_com_atributo_tamanho_atual(8)
+lista.visualizar_lista()
+lista.remover_valor_com_atributo_tamanho_atual(9)
+lista.visualizar_lista()
+lista.remover_valor_com_atributo_tamanho_atual(10)
+lista.visualizar_lista()
+lista.remover_valor_com_atributo_tamanho_atual(7)
+lista.visualizar_lista()
+lista.remover_valor_com_atributo_tamanho_atual(6)
+lista.visualizar_lista()
