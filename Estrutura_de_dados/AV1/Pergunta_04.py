@@ -6,6 +6,9 @@ class Item:
         self.valor = valor
         self.proximo = None
 
+    def __str__(self):
+        return f'{self.valor}'
+
 
 class Lista_Circular:
     def __init__(self):
@@ -38,7 +41,7 @@ class Lista_Circular:
                 if item_procurado.valor == valor and not encontrado:
                     print(f'O item se encontra na posicao {contador}')
                     encontrado = True
-                elif item_procurado.valor == valor and not encontrado:
+                elif item_procurado.valor == valor and encontrado:
                     print(f'O item também se encontra na posicao {contador}')
                 item_procurado = item_procurado.proximo
                 contador += 1
@@ -72,7 +75,7 @@ class Lista_Circular:
         if item_analisado == None:
             print('Lista vazia')
         else:
-            while item_analisado.proximo != self.cauda:
+            while True:
                 if item_analisado == self.cabeca and item_analisado.valor == valor:
                     self.cabeca = item_analisado.proximo
                     self.cauda.proximo = self.cabeca
@@ -80,6 +83,7 @@ class Lista_Circular:
                     item_analisado = self.cabeca
                     self.tamanho_atual -= 1
                     item_removido = True
+                    print('removido cabeca')
                 elif item_analisado.proximo.valor == valor:
                     item_analisado.proximo = item_analisado.proximo.proximo
                     print('item removido')
@@ -91,7 +95,9 @@ class Lista_Circular:
                     print('removido cauda')
                     self.tamanho_atual -= 1
                     item_removido = True
-                item_analisado = item_analisado.proximo
+                else:
+                    item_analisado = item_analisado.proximo
+                if item_analisado.proximo == self.cabeca: break
             if not item_removido:
                 print('Valor informado não encontrado na lista')
 
@@ -103,8 +109,12 @@ lista = Lista_Circular()
 lista.busca_item(5)
 lista.inserir_item(5)
 lista.inserir_item(5)
+lista.inserir_item(5)
+lista.inserir_item(5)
 lista.inserir_item(6)
 lista.inserir_item(7)
+lista.inserir_item(5)
+lista.inserir_item(5)
 lista.inserir_item(8)
 lista.inserir_item(9)
 lista.busca_item(9)
@@ -126,5 +136,8 @@ lista.remover_valor(8)
 lista.busca_item_com_atributo_tamanho_atual(8)
 lista.busca_item_com_atributo_tamanho_atual(7)
 lista.remover_valor(8)
+lista.remover_valor(5)
+lista.busca_item_com_atributo_tamanho_atual(5)
+lista.remover_valor(5)
 lista.remover_valor(5)
 
