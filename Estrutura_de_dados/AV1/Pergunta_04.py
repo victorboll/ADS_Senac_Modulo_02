@@ -127,4 +127,5 @@ lista.busca_item_com_atributo_tamanho_atual(8)
 lista.busca_item_com_atributo_tamanho_atual(7)
 lista.remover_valor(8)
 lista.remover_valor(5)
-
+lista.busca_item_com_atributo_tamanho_atual(5)
+lista.remover_valor(5)
