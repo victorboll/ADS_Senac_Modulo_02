@@ -1,3 +1,5 @@
+#Grupo: Tales Mateus da Costa e Victor Bollentini
+
 """Av Prática
 Regras:
 (1) pode ser realizada em trio,
