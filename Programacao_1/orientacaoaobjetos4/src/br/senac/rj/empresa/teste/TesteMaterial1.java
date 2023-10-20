@@ -1,6 +1,8 @@
-package br.senac.rj.empresa.modelo;
+package br.senac.rj.empresa.teste;
 
 import java.util.Scanner;
+
+import br.senac.rj.empresa.modelo.Material;
 
 public class TesteMaterial1 {
 

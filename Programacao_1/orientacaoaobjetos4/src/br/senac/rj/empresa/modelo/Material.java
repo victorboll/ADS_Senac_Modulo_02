@@ -11,11 +11,11 @@ public class Material {
 	
 	public void sairMaterial(int qtyMaterial) {
 		if (qtyMaterial > qtdeEstoque) {
-			System.out.println("Não há estoque suficiente!");
+			System.out.println("\nNão há estoque suficiente!\n");
 		}
 		else {
 			this.qtdeEstoque = this.qtdeEstoque - qtyMaterial;
-			System.out.println("Saída do material realizada com sucesso!");
+			System.out.println("\nSaída do material realizada com sucesso!\n");
 		}	
 	}
 	
