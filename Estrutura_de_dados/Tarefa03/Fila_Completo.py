@@ -79,14 +79,13 @@ class Fila:
 
     def inverter_fila(self):
         print(f'\n[ {self.primeiro} ]')
-        while self.primeiro.proximo != None:
-            nova_cabeca = self.primeiro.proximo
-            self.primeiro.proximo = nova_cabeca.proximo
-            cabeca_antiga = nova_cabeca
-            nova_cabeca.proximo = cabeca_antiga
-
-
-        print(f'\n[ {self.primeiro} ]')
+        antigoPrimeiro = self.primeiro
+        while antigoPrimeiro.proximo != None:
+            novoPrimeiro = antigoPrimeiro.proximo
+            antigoPrimeiro.proximo = antigoPrimeiro.proximo.proximo
+            novoPrimeiro.proximo = self.primeiro
+            self.primeiro = novoPrimeiro
+            print(f'\n[ {self.primeiro} ]')
 
 
 
@@ -105,6 +104,8 @@ print(f'{fila}\n')
 
 for i in range(6):
     fila.buscar_item_por_valor(i)
+
+fila.imprimir_elementos()
 
 fila.inverter_fila()
 
