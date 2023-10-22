@@ -1,3 +1,5 @@
+"""3. Defina as funções inserção, remoção e busca como métodos da Classe Lista. (Vide apostila)"""
+
 class ItemLista:
     def __init__(self, valor=0, proximo_item=None):
         self.valor = valor

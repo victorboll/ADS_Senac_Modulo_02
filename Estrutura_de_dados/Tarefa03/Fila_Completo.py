@@ -39,6 +39,7 @@ class Fila:
             self.ultimo.proximo = item
             self.ultimo = item
 
+
     def pop_item(self):
         if self.primeiro == None:
             print('Fila vazia')
