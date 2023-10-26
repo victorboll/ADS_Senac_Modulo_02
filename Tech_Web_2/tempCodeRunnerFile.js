@@ -1,1 +1,2 @@
-.log(result)
+console.log(pessoasComId)
+console.log(indice)
