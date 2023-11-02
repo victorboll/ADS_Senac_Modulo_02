@@ -8,4 +8,4 @@ const numerosParesMultiplicadosPorDoisEMultiplicados = numeros.filter(function(v
     return ac * valor
 });
 
-console.log(numerosParesMultiplicadosPorDois)
+console.log(numerosParesMultiplicadosPorDoisEMultiplicados)

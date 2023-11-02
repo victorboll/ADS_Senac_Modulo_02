@@ -1,0 +1,15 @@
+const pessoas = [
+    {nome: 'Luiz', idade : 23},
+    {nome: 'Sara', idade : 18},
+    {nome: 'Alberto', idade : 23},
+    {nome: 'Carlos', idade : 14},
+    {nome: 'Eduardo', idade : 32},
+    {nome: 'Carla', idade : 45},
+]
+
+
+var soma = pessoas.reduce(function(total,pessoas){
+    return total + pessoas.idade
+}, 0)
+
+console.log(soma)
