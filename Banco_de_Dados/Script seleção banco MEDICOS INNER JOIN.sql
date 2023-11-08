@@ -29,8 +29,9 @@ ORDER BY a.andar
 
 
 --Buscar o nome dos pacientes que têm consulta marcada, com a respectiva data e hora, ordenado por data/hora
-SELECT p.nome, c.data, c.hora
-FROM Pacientes p JOIN Consultas c ON p.codp = c.codp
+SELECT FORMAT(c.hora, N'hh\:mm\:ss') AS 'Hora_Formatada', m.nome as 'Nome Medico', p.nome as 'Nome Paciente', c.data, RIGHT(CONVERT(varchar,c.hora,108),8) as 'Hora', 
+FORMAT(cast(c.hora as time), N'hh\:mm\:ss') AS 'Hora_Formatada_2'
+FROM Consultas c JOIN Pacientes p ON p.codp = c.codp JOIN Medicos m ON m.codm = c.codm
 ORDER BY c.data, c.hora
 
 
