@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Olá usando seletores</h1>
+    <ul>
+        <li>Java</li>
+        <li>Python</li>
+        <li>Go</li>
+    </ul>
+    <div id="conteudo" name="divconteudo" class="mensagem">
+
+    </div>
+    <div name="divconteudo" class="mensagem">
+
+    </div>
+    <div name="divconteudo" class="mensagem">
+
+    </div>
+    <div name="divconteudo" class="mensagem">
+
+    </div>
+    <span name="novoSpan" class="novo">
+        span
+    </span>
+</body>
+<script>
+    elemento0 = document.getElementsByTagName("li")[0];
+    elemento0.style.color = 'blue'
+
+    elemento1 = document.getElementsByTagName("li")[1];
+    elemento1.style.background = 'red'
+
+    elemento2 = document.getElementsByTagName("li")[2];
+    elemento2.innerText = 'Spring'
+
+    elementoDiv = document.getElementById("conteudo")
+    elementoDiv.innerHTML = '<p>Estou colocando um texto na div</p>'
+
+    elementoDivName = document.getElementsByName("divconteudo")[1]
+    elementoDivName.style.color = "blue"
+    elementoDivName.innerText = "Estou inserindo um texto dentro da div 2"
+
+    elementClass = document.getElementsByClassName("mensagem")[2]
+    elementClass.innerHTML = "<b>Novo Texto</b>"
+
+    elementSpan = document.querySelector("span.novo")
+    elementSpan.style.background = "yellow"
+
+    elementSelector = document.querySelectorAll(".mensagem")[3]
+    elementSelector.innerHTML = "<p>Incluindo paragrafo</p>"
+</script>
+</html>
