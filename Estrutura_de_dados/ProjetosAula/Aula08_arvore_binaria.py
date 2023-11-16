@@ -103,3 +103,37 @@ for i in array:
 
 em_ordem(raiz3)
 print(raiz3)
+
+
+def busca(raiz, chave):
+    """Procura por uma chave em uma árvore binária de pesquisa"""
+    # Trata o caso que a chave procurada não está presente.
+    if raiz is None:
+        return None
+
+    # A chave procurada está na raiz da árvore.
+    elif raiz.chave == chave:
+        return raiz
+
+    #A chave procurada é maior que a da raiz.
+    elif raiz.chave < chave:
+        return busca(raiz.direita, chave)
+
+    #A chave procurada é menor que a da raiz.
+    elif raiz.chave > chave:
+        return busca(raiz.esquerda, chave)
+
+
+#Cria uma árvore binária para testar a função busca:
+raiz4 = NodoArvore(40)
+for chave in [20, 60, 50, 70, 10, 30]:
+    nodo = NodoArvore(chave)
+    insere(raiz, nodo)
+
+#Procura por valores na árvore.
+for chave in [-50, 10, 30, 70, 100]:
+    resultado = busca(raiz, chave)
+    if resultado:
+        print("Busca pela chave {}: Sucesso!".format(chave))
+    else:
+        print("Busca pela chave {}: Falha!".format(chave))
