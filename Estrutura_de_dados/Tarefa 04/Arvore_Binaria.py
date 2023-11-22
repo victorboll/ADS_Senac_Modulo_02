@@ -160,5 +160,59 @@ print(comparar_arvores(raiz4, raiz6))
 
 """4. Calcule a altura de uma BST."""
 
+def armazenar_alturas_em_array_em_ordem(raiz, array, altura=-1):
+    altura += 1
+
+    if raiz is None:
+        return
+
+    armazenar_alturas_em_array_em_ordem(raiz.esquerda, array, altura)
+
+    array.append(altura)
+
+    armazenar_alturas_em_array_em_ordem(raiz.direita, array, altura)
 
 
+array9 = []
+armazenar_alturas_em_array_em_ordem(raiz, array9)
+print(array9)
+
+def altura_arvore(raiz):
+    array = []
+    armazenar_alturas_em_array_em_ordem(raiz, array)
+    altura = 0
+    for i in array:
+        if altura < i: altura = i
+    print(altura)
+
+
+altura_arvore(raiz)
+altura_arvore(raiz2)
+altura_arvore(raiz3)
+altura_arvore(raiz4)
+altura_arvore(raiz5)
+altura_arvore(raiz6)
+
+raiz7 = NodoArvoreBinaria(50)
+altura_arvore(raiz7)
+
+def altura_arvore_2(raiz, altura=-1):
+    if raiz is None:
+        return altura
+
+    altura += 1
+
+    if altura_arvore_2(raiz.esquerda, altura) > altura_arvore_2(raiz.direita, altura):
+        return altura_arvore_2(raiz.esquerda, altura)
+    else:
+        return altura_arvore_2(raiz.direita, altura)
+
+
+print('-----------------')
+print(altura_arvore_2(raiz))
+print(altura_arvore_2(raiz2))
+print(altura_arvore_2(raiz3))
+print(altura_arvore_2(raiz4))
+print(altura_arvore_2(raiz5))
+print(altura_arvore_2(raiz6))
+print(altura_arvore_2(raiz7))
