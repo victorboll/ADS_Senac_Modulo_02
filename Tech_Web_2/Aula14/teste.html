@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function exemploEvento(){
+            alert("O evento foi disparado");
+        }
+
+        function mouseOver(){
+            document.getElementById('exemploEvento').style.color = 'red'
+        }
+
+        function mouseOut(){
+            document.getElementById('exemploEvento').style.color = 'purple'
+        }
+
+        function getNome(){
+            var nome = document.getElementById("nome").value;
+            alert(nome);
+        }
+
+        function validaFormulario(){
+            var nome = document.getElementById("nome").value;
+            if(nome == ""){
+                alert("Preencha o campo!");
+                return false
+            }else{
+                alert("Campo preenchido")
+                return true
+            }
+        }
+
+
+    </script>
+
+<p>Clique no botao abaixo</p>
+
+<h1 id="exemploEvento" onmouseover="mouseOver()" onmouseout="mouseOut()">Exemplo</h1>
+
+    <button onclick="exemploEvento()">Clique aqui</button>
+
+    <form method="post">
+        <input type="text" name="nome" id="nome">
+    </form>
+    <input type="submit" onclick="getNome()" name="Enviar">
+    <input type="submit" onclick="validaFormulario()" name="Enviar">
+   
+</body>
+</html>

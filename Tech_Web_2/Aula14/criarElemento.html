@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="lista">
+
+    </ul>
+
+    <script>
+        const element = document.createElement('div')
+        element.innerText = 'Incluindo texto'
+        element.style.backgroundColor = 'lightgreen'
+        document.body.append(element)
+
+        let lista = document.getElementById('lista');
+        let li = document.createElement('li')
+        li.textContent = "Quem somos"
+        lista.appendChild(li)
+    </script>
+    
+</body>
+</html>

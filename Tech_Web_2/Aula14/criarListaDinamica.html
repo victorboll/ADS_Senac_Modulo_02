@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com elemento</title>
+</head>
+<body>
+    <ul id="listaUL">
+
+    </ul>
+    <ul class="listaUL2">
+
+    </ul>
+
+    <script>
+        var times = ["Manga","Banana","Laranja","Uva"] 
+        for (var i=0; i < times.length; i++){
+            let lista = document.getElementById('listaUL');
+            let li = document.createElement('li')
+            li.textContent = times[i]
+            li.style.border = '1px solid blue';
+            lista.appendChild(li)
+        }
+
+        var times2 = ['D', 'C', 'B', 'A']
+
+        var lista = document.querySelector('ul.listaUL2')
+
+        for(var i = 0; i < times2.length; i++){
+            var times = times2[i];
+            var listaItem = document.createElement('li');
+            listaItem.textContent = times;
+            listaItem.style.border = '1px solid orange';
+            lista.appendChild(listaItem);
+        }
+
+
+
+    </script>
+
+</body>
+</html>

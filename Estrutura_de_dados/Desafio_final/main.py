@@ -25,6 +25,9 @@ def getMorseCode(node, character, code):
             code.insert(0, "-")
             return True
 
+
+def getMessage():
+
 # Your code here!!
 def getMessage():
     return True
