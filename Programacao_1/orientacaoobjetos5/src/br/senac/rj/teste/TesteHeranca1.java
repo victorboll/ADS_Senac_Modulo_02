@@ -28,7 +28,7 @@ public class TesteHeranca1 {
 		else
 			System.out.println("Novo saldo da conta corrente normal: " + ccn1.getSaldo());
 		sc.close();
-
+		System.out.println("Total de contas criadas = " + Conta3.totalContas);
 	}
 
 }

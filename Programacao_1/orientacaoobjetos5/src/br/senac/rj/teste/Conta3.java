@@ -1,13 +1,15 @@
 package br.senac.rj.teste;
 
-public class Conta3 {
+public abstract class Conta3 {
 	private int agencia;
 	private int numero;
 	protected double saldo;
 	private String titular;
+	public static int totalContas;
 	
 	Conta3(){ 
 		this.titular = "";
+		totalContas++; //Como é abstrato e está dentro da mesma classe, não precisa botar Conta3. ou this.
 	}
 	
 	Conta3(int agencia, int numero) {
@@ -52,11 +54,6 @@ public class Conta3 {
 		this.saldo = this.saldo + valor;
 	}
 	
-	public boolean saca (double valor) {
-		double novoSaldo = this.saldo - valor;
-		if (novoSaldo < 0) 
-			return false;
-		this.saldo = novoSaldo;
-		return true;
-	}
+	public abstract boolean saca (double valor);
+	
 }
