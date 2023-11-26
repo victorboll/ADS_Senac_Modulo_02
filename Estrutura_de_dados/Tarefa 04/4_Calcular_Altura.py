@@ -20,7 +20,7 @@ def altura_arvore(raiz):
     altura = 0
     for i in array:
         if altura < i: altura = i
-    print(altura)
+    return altura
 
 
 raiz = NodoArvoreBinaria(10)
