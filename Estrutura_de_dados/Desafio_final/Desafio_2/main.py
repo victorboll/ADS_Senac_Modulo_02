@@ -10,6 +10,9 @@ class Node:
         self.left = left
         self.right = right
 
+    def __str__(self):
+        return self.value
+
 
 # Convert Character (Find the character using a pre-order traversal of the Binary Tree
 def getMorseCode(node, character, code):
@@ -27,14 +30,11 @@ def getMorseCode(node, character, code):
 
 
 def getMessage():
-
-# Your code here!!
-def getMessage():
     return True
-
+    #Your code here!!
 
 # Let's initialise our binary tree:
-tree = Node("START")  # The root node of our binary tree
+tree = Node(" ")  # The root node of our binary tree
 
 # 1st Level
 tree.left = Node("E")
@@ -79,6 +79,7 @@ tree.right.right.right.right = Node("")
 drawTree(tree)
 
 # Message Input
+"""
 message = input("Enter a message to convert into Morse Code: (e.g. SOS)").upper()
 morseCode = ""
 
@@ -90,5 +91,36 @@ for character in message:
     morseCode = morseCode + code + " "
 
 print(morseCode)
+"""
+
+def getCaractere(raiz, codigo):
+    if codigo == " ":
+        return " "
+    elif codigo == '':
+        return raiz.value
+    elif codigo[0] == '.':
+        return getCaractere(raiz.left, codigo[1:])
+    elif codigo[0] == '-':
+        return getCaractere(raiz.right, codigo[1:])
+
+
+mensagem_em_morse = input("Digite uma mensagem em código Morse para ser traduzida para texto\n"
+                          "(ex.: ... --- ...  ... --- ...= SOS SOS): \n")
+mensagem_em_morse = mensagem_em_morse.replace("  ", " _ ")
+mensagem_em_morse = mensagem_em_morse.split()
+for i in range(len(mensagem_em_morse)):
+    if mensagem_em_morse[i] == '_':
+        mensagem_em_morse[i] = ' '
+mensagem_em_texto = ""
+
+for codigo in mensagem_em_morse:
+    getCaractere(tree, codigo)
+    mensagem_em_texto = mensagem_em_texto + getCaractere(tree, codigo)
+
+print(mensagem_em_texto)
+
+
+
+
 
 
