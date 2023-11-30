@@ -31,5 +31,3 @@ def listar_nodos_em_ordem(raiz):
     print(raiz.valor)
 
     listar_nodos_em_ordem(raiz.direita)
-
-
