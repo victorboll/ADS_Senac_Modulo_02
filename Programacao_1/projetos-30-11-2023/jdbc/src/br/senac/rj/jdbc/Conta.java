@@ -58,7 +58,7 @@ public abstract class Conta {
 	public abstract boolean saca(double valor);
 
 	public boolean cadastrarConta(int numAgencia, int numConta, String titular) {
-		// Define a conexão
+		// Define a conexï¿½o
 		Connection conexao = null;
 		try {
 			conexao = Conexao.conectaBanco();
@@ -66,13 +66,13 @@ public abstract class Conta {
 			String sql = "insert into conta set agencia=?, numero=?, titular=?, saldo=0;";
 			// Prepara a consulta
 			PreparedStatement ps = conexao.prepareStatement(sql);
-			// Define os parâmetros da consulta
-			ps.setInt(1, numAgencia); // Substitui o primeiro parâmetro da consulta pela agência informada
-			ps.setInt(2, numConta); // Substitui o segundo parâmetro da consulta pela conta informada
-			ps.setString(3, titular); // Substitui o terceiro parâmetro da consulta pelo titular informado
+			// Define os parï¿½metros da consulta
+			ps.setInt(1, numAgencia); // Substitui o primeiro parï¿½metro da consulta pela agï¿½ncia informada
+			ps.setInt(2, numConta); // Substitui o segundo parï¿½metro da consulta pela conta informada
+			ps.setString(3, titular); // Substitui o terceiro parï¿½metro da consulta pelo titular informado
 			int totalRegistrosAfetados = ps.executeUpdate();
 			if (totalRegistrosAfetados == 0) {
-				System.out.println("Não foi feito o cadastro!!");
+				System.out.println("Nï¿½o foi feito o cadastro!!");
 				return false;
 			}
 			System.out.println("Cadastro realizado!");
@@ -86,7 +86,7 @@ public abstract class Conta {
 	}
 
 	public boolean consultarConta(int numAgencia, int numConta) {
-		// Define a conexão
+		// Define a conexï¿½o
 		Connection conexao = null;
 		try {
 			conexao = Conexao.conectaBanco();
@@ -94,17 +94,17 @@ public abstract class Conta {
 			String sql = "select * from conta where agencia=? and numero=?";
 			// Prepara a consulta
 			PreparedStatement ps = conexao.prepareStatement(sql);
-			// Define os parâmetros da consulta
-			ps.setInt(1, numAgencia); // Substitui o primeiro parâmetro da consulta pela agência informada
-			ps.setInt(2, numConta); // Substitui o segundo parâmetro da consulta pela conta informada
+			// Define os parï¿½metros da consulta
+			ps.setInt(1, numAgencia); // Substitui o primeiro parï¿½metro da consulta pela agï¿½ncia informada
+			ps.setInt(2, numConta); // Substitui o segundo parï¿½metro da consulta pela conta informada
 			// Executa a consulta, resultando em um objeto da classe ResultSet
 			ResultSet rs = ps.executeQuery();
-			if (!rs.isBeforeFirst()) { // Verifica se não está antes do primeiro registro
-				System.out.println("Conta não cadastrada!");
-				return false; // Conta não cadastrada
+			if (!rs.isBeforeFirst()) { // Verifica se nï¿½o estï¿½ antes do primeiro registro, se nÃ£o tiver registros, ele retorna ! false = true
+				System.out.println("Conta nÃ£o cadastrada!");
+				return false; // Conta nÃ£o cadastrada
 			} else {
 				// Efetua a leitura do registro da tabela
-				while (rs.next()) {
+				while (rs.next()) { //nem precisa desse next porque ele sÃ³ pode encontrar no mÃ¡ximo 1
 					this.agencia = rs.getInt("agencia");
 					this.numero = rs.getInt("numero");
 					this.titular = rs.getString("titular");
@@ -124,25 +124,25 @@ public abstract class Conta {
 		if (!consultarConta(numAgencia, numConta))
 			return false;
 		else {
-			// Define a conexão
+			// Define a conexÃ£o
 			Connection conexao = null;
 			try {
-				// Define a conexão
+				// Define a conexï¿½o
 				conexao = Conexao.conectaBanco();
 				// Define a consulta
 				String sql = "update conta set titular=?, saldo=? where agencia=? and numero=?";
 				// Prepara a consulta
 				PreparedStatement ps = conexao.prepareStatement(sql);
-				// Define os parâmetros da atualização
+				// Define os parÃ¢metros da atualizaÃ§Ã£o
 				ps.setString(1, titular);
 				ps.setDouble(2, saldo);
 				ps.setInt(3, numAgencia);
 				ps.setInt(4, numConta);
 				int totalRegistrosAfetados = ps.executeUpdate();
 				if (totalRegistrosAfetados == 0)
-					System.out.println("Não foi feita a atualização!");
+					System.out.println("NÃ£o foi feita a atualizaÃ§Ã£o!");
 				else
-					System.out.println("Atualização realizada!");
+					System.out.println("AtualizaÃ§Ã£o realizada!");
 				return true;
 			} catch (SQLException erro) {
 				System.out.println("Erro ao atualizar a conta: " + erro.toString());

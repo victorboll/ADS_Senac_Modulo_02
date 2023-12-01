@@ -10,15 +10,15 @@ public class Conexao {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost/banco"; // URL do banco de dados
-			String user = "root"; // nome do usu·rio do banco
+			String user = "root"; // nome do usu√°rio do banco
 			String password = ""; // senha do banco
 			conexao = DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException erro) {
-			System.out.println("Driver n„o encontrado: " + erro);
+			System.out.println("Driver n√£o encontrado: " + erro);
 		} catch (SQLException erro) {
-			System.out.println("Erro de conex„o ao banco de dados: " + erro.toString());
+			System.out.println("Erro de conex√£o ao banco de dados: " + erro.toString());
 		} catch (Exception erro) {
-			System.out.println("Erro n„o identificado: " + erro.toString());
+			System.out.println("Erro n√£o identificado: " + erro.toString());
 		} 
 		return conexao;
 	}
@@ -26,7 +26,7 @@ public class Conexao {
 		try {
 			conexao.close();
 		} catch (Exception erro) {
-			System.out.println("Erro ao fechar a conex„o: " + erro.toString());
+			System.out.println("Erro ao fechar a conex√£o: " + erro.toString());
 		}
 	}
 }

@@ -20,17 +20,17 @@ public class TesteFuncionario1 {
 				String nome = sc.nextLine();
 				System.out.println("Entre com o cargo: ");
 				int cargo = Integer.parseInt(sc.nextLine());
-				System.out.println("Entre com o sal·rio: ");
+				System.out.println("Entre com o sal√°rio: ");
 				double salario = Double.parseDouble(sc.nextLine());
 				do {
-					System.out.println("… gerente (s/n)?");
+					System.out.println("√â gerente (s/n)?");
 					gerente = sc.nextLine().trim().toUpperCase();
 				} while (!gerente.equals("S")&&!gerente.equals("N"));
 				if (gerente.equals("S")) {
-					func1 = new Gerente(); // Upcasting
-					System.out.println("BonificaÁ„o de gerente: ");
+					func1 = new Gerente(); // Upcasting - instancia o objeto filho em uma vari√°vel que √© tipada como a m√£e dele
+					System.out.println("Bonifica√ß√£o de gerente: ");
 					double bonificacao = Double.parseDouble(sc.nextLine());
-					((Gerente) func1).setBonificacao(bonificacao); // Downcasting
+					((Gerente) func1).setBonificacao(bonificacao); // Downcasting - porque na classe Funcion√°rio n√£o tem bonifica√ß√£o nesse caso, s√≥ na classe gerente, ent√£o precisa fazer o casting
 				} else {
 					func1 = new Analista(); // Upcasting
 				}
@@ -38,11 +38,11 @@ public class TesteFuncionario1 {
 				func1.setNome(nome);
 				func1.setCargo(cargo);
 				func1.setSalario(salario);
-				System.out.println("Sal·rio = " + func1.getSalario());
+				System.out.println("SalÔøΩrio = " + func1.getSalario());
 				func1.aplicarBonificacao();
-				System.out.println("O novo sal·rio de " + func1.getNome() + " È " + func1.getSalario());
+				System.out.println("O novo sal√°rio de " + func1.getNome() + " √© " + func1.getSalario());
 			} catch (NumberFormatException erro) {
-				System.out.println("Erro de formataÁ„o!");
+				System.out.println("Erro de formata√ß√£o!");
 			} catch (Exception erro) {
 				erro.printStackTrace();
 			}

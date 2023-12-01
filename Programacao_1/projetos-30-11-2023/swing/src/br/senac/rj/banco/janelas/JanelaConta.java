@@ -16,16 +16,16 @@ import br.senac.rj.banco.modelo.ContaCorrenteNormal;
 public class JanelaConta {
 	public static JFrame criarJanelaConta() {
 		// Define a janela
-		JFrame janelaConta = new JFrame("Atualização de conta"); // Janela Normal
-		janelaConta.setResizable(false); // A janela não poderá ter o tamanho ajustado
+		JFrame janelaConta = new JFrame("AtualizaÃ§Ã£o de conta"); // Janela Normal
+		janelaConta.setResizable(false); // A janela nï¿½o poderï¿½ ter o tamanho ajustado
 		janelaConta.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		janelaConta.setSize(400, 300); // Define tamanho da janela
 		// Define o layout da janela
 		Container caixa = janelaConta.getContentPane();
-		caixa.setLayout(null);
+		caixa.setLayout(null); // Fica como null para vocÃª colocar os campos onde vocÃª quiser
 		// Define os labels dos campos
-		JLabel labelAgencia = new JLabel("Agência: ");
-		JLabel labelNumero = new JLabel("Número da conta: ");
+		JLabel labelAgencia = new JLabel("AgÃªncia: ");
+		JLabel labelNumero = new JLabel("NÃºmero da conta: ");
 		JLabel labelTitular = new JLabel("Titular: ");
 		// Posiciona os labels na janela
 		labelAgencia.setBounds(50, 40, 100, 20); // coluna, linha, largura, tamanho
@@ -35,7 +35,7 @@ public class JanelaConta {
 		JTextField jTextAgencia = new JTextField();
 		JTextField jTextNumero = new JTextField();
 		JTextField jTextTitular = new JTextField();
-		// Define se os campos estão habilitados ou não no início
+		// Define se os campos estÃ£o habilitados ou nÃ£o no inÃ­cio
 		jTextAgencia.setEnabled(true);
 		jTextNumero.setEnabled(true);
 		jTextTitular.setEnabled(false);
@@ -43,14 +43,14 @@ public class JanelaConta {
 		jTextAgencia.setBounds(180, 40, 50, 20);
 		jTextNumero.setBounds(180, 80, 50, 20);
 		jTextTitular.setBounds(180, 120, 150, 20);
-		// Adiciona os rótulos e os input box na janela
+		// Adiciona os rÃ³tulos e os input box na janela
 		janelaConta.add(labelAgencia);
 		janelaConta.add(labelNumero);
 		janelaConta.add(labelTitular);
 		janelaConta.add(jTextAgencia);
 		janelaConta.add(jTextNumero);
 		janelaConta.add(jTextTitular);
-		// Define botões e a localização deles na janela
+		// Define botÃµes e a localizaÃ§Ã£oo deles na janela
 		JButton botaoConsultar = new JButton("Consultar");
 		botaoConsultar.setBounds(230, 80, 100, 20);
 		janelaConta.add(botaoConsultar);
@@ -63,7 +63,7 @@ public class JanelaConta {
 		janelaConta.add(botaoLimpar);
 		// Define objeto conta para pesquisar no banco de dados
 		ContaCorrenteNormal conta = new ContaCorrenteNormal();
-		// Define ações dos botões
+		// Define aï¿½ï¿½es dos botï¿½es
 		botaoConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -83,33 +83,33 @@ public class JanelaConta {
 					jTextTitular.requestFocus();
 				} catch (Exception erro) {
 					JOptionPane.showMessageDialog(janelaConta,
-							"Preencha os campos agência e número da conta corretamente!!");
+							"Preencha os campos agÃªncia e nÃºmero da conta corretamente!!");
 				}
 			}
 		});
 		botaoGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				int resposta = JOptionPane.showConfirmDialog(janelaConta, "Deseja atualizar?", "Confirmação",
+				int resposta = JOptionPane.showConfirmDialog(janelaConta, "Deseja atualizar?", "ConfirmaÃ§Ã£o",
 						JOptionPane.YES_NO_OPTION);
 				if (resposta == JOptionPane.YES_OPTION) {
 					int agencia = Integer.parseInt(jTextAgencia.getText());
 					int numero = Integer.parseInt(jTextNumero.getText());
-					String titular = jTextTitular.getText().trim(); // Retira os espaços em branco
+					String titular = jTextTitular.getText().trim(); // Retira os espaï¿½os em branco
 					if (titular.length() == 0) {
 						JOptionPane.showMessageDialog(janelaConta, "Preencha o campo titular");
 						jTextTitular.requestFocus();
 					} else {
 						if (!conta.consultarConta(agencia, numero)) {
 							if (!conta.cadastrarConta(agencia, numero, titular))
-								JOptionPane.showMessageDialog(janelaConta, "Erro na inclusão do titular!");
+								JOptionPane.showMessageDialog(janelaConta, "Erro na inclusï¿½o do titular!");
 							else
-								JOptionPane.showMessageDialog(janelaConta, "Inclusão realizada!");
+								JOptionPane.showMessageDialog(janelaConta, "Inclusï¿½o realizada!");
 						} else {
 							if (!conta.atualizarConta(agencia, numero, titular))
-								JOptionPane.showMessageDialog(janelaConta, "Erro na atualização do titular!");
+								JOptionPane.showMessageDialog(janelaConta, "Erro na atualizaï¿½ï¿½o do titular!");
 							else
-								JOptionPane.showMessageDialog(janelaConta, "Alteração realizada!");
+								JOptionPane.showMessageDialog(janelaConta, "Alteraï¿½ï¿½o realizada!");
 						}
 
 					}
