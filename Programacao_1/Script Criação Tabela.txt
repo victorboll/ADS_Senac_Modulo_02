@@ -1,0 +1,47 @@
+CREATE DATABASE personagem;
+
+USE personagem;
+
+CREATE TABLE caracteristicas (
+id INT PRIMARY KEY,
+    nome VARCHAR(40) NOT NULL,
+    nivel INT NOT NULL,
+    raca VARCHAR(40) NOT NULL,
+    classe VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE atributos(
+    id_atributo INT,
+    nome_atributo VARCHAR(20) NOT NULL,
+    tipo_atributo VARCHAR(20) NOT NULL,
+    valor_atributo INT NOT NULL,
+    proficiencia_atributo TINYINT NOT NULL,
+    id_personagem INT,
+    PRIMARY KEY (id_atributo, id_personagem),
+    FOREIGN KEY (id_personagem) REFERENCES caracteristicas(id)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE magias(
+    id_magia INT,
+    nome_magia VARCHAR(40) NOT NULL,
+    tipo_magia VARCHAR(20) NOT NULL,
+    nivel_magia INT NOT NULL,
+    escola_magia VARCHAR(20) NOT NULL,
+    id_personagem INT,
+    PRIMARY KEY (id_magia, id_personagem),
+    FOREIGN KEY (id_personagem) REFERENCES caracteristicas(id)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE inventario(
+    id_item INT,
+    nome_item VARCHAR(40) NOT NULL,
+    quantidade_item INT NOT NULL,
+    peso_item FLOAT NOT NULL,
+    tipo_item VARCHAR(20) NOT NULL,
+    id_personagem INT,
+    PRIMARY KEY (id_item, id_personagem),
+    FOREIGN KEY (id_personagem) REFERENCES caracteristicas(id)
+    ON DELETE CASCADE
+);
